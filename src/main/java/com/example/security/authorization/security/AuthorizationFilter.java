@@ -42,10 +42,26 @@ public class AuthorizationFilter extends OncePerRequestFilter {
     private UsernamePasswordAuthenticationToken getToken(String header) {
         if (header != null) {
             String token = header.replace("Bearer ", "");
-            String user = !jwtUtils.isTokenValid(token) ? null : jwtUtils.extractUser(token);
+            String user = jwtUtils.isTokenExpired(token) ? null : jwtUtils.extractUser(token);
             if (user != null)
                 return new UsernamePasswordAuthenticationToken(user, null, jwtUtils.extractAuthorities(token));
         }
         return null;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

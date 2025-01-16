@@ -25,12 +25,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
-    /**
-     * A method to load user details by username.
-     *
-     * @param  username   the username to load the user details
-     * @return            the user details for the provided username
-     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         logger.debug("Entering in loadUserByUsername Method...");

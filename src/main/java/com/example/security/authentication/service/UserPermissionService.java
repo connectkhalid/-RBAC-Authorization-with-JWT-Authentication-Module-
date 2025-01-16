@@ -40,12 +40,6 @@ public class UserPermissionService {
         return "permission revoke successful";
     }
 
-    /**
-     * Adds a permission to a user based on the provided RoleAssignDTO.
-     *
-     * @param  roleDTO  the RoleAssignDTO containing role and user information
-     * @return          a message indicating the success of assigning the role
-     */
     private String addPermission(RoleAssignDTO roleDTO) {
         Role role = roleRepository.findByRoleName(roleDTO.getRoleName()).orElseThrow(
                 () -> new CustomException("Role doesn't exist", HttpStatus.BAD_REQUEST));

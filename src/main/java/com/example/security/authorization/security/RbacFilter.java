@@ -10,7 +10,6 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import java.lang.reflect.Method;
-import java.util.Objects;
 
 @Component
 public class RbacFilter implements HandlerInterceptor {
@@ -30,9 +29,6 @@ public class RbacFilter implements HandlerInterceptor {
                 if (!rbacService.hasPermission(permission)) {
                     response.sendError(HttpServletResponse.SC_FORBIDDEN, "Access Denied");
                     return false;
-                }
-                if(Objects.equals(requiresPermission.permission(), "book_update")){
-
                 }
             }
         }
